@@ -78,7 +78,7 @@
        </rect>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="tab">
        <attribute name="title">
@@ -299,6 +299,44 @@ background-color: rgb(255, 255, 255);</string>
          <string notr="true">background-color: rgb(255, 255, 255);</string>
         </property>
        </widget>
+       <widget class="QLineEdit" name="lineEdit_11">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="geometry">
+         <rect>
+          <x>280</x>
+          <y>0</y>
+          <width>200</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(255, 255, 255);</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_6">
+        <property name="geometry">
+         <rect>
+          <x>45</x>
+          <y>10</y>
+          <width>121</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>ID</string>
+        </property>
+       </widget>
       </widget>
      </widget>
      <widget class="QPushButton" name="btn_alterar">
@@ -321,7 +359,7 @@ background-color: rgb(255, 255, 255);</string>
       <property name="geometry">
        <rect>
         <x>560</x>
-        <y>300</y>
+        <y>290</y>
         <width>201</width>
         <height>28</height>
        </rect>
@@ -347,6 +385,22 @@ background-color: rgb(255, 255, 255);</string>
       </property>
       <property name="text">
        <string>ADICIONAR</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="btn_listar">
+      <property name="geometry">
+       <rect>
+        <x>560</x>
+        <y>370</y>
+        <width>201</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
+      </property>
+      <property name="text">
+       <string>LISTAR</string>
       </property>
      </widget>
     </widget>

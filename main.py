@@ -23,7 +23,7 @@ class Login(QWidget, Ui_Form):
             print('senha invalida')
 
 ######### INSTANCIEIA A TELA RPINCIPAL COM A TABELA ############
-class MainWindow(QMainWindow, Ui_Tela, QTabWidget):
+class MainWindow(QMainWindow, Ui_Tela, QTabWidget,QTableWidget):
     def __init__(self) -> None:
         super(MainWindow, self).__init__()
         self.setupUi(self)
@@ -31,7 +31,7 @@ class MainWindow(QMainWindow, Ui_Tela, QTabWidget):
 
         self.btn_adicionar.clicked.connect(self.inserir_estoque)
         self.btn_excluir.clicked.connect(self.delete)
-        self.btn_sair.clicked.connect(self.trazer_dados)
+        self.btn_listar.clicked.connect(self.trazer_dados)
 
     ######FUNÇÕES VINDO DO BDD########
 
@@ -40,32 +40,39 @@ class MainWindow(QMainWindow, Ui_Tela, QTabWidget):
         db = Banco()
         db.conexao()
         dados = (self.lineEdit_6.text(),self.lineEdit_7.text(),self.lineEdit_8.text(),self.lineEdit_9.text(),self.lineEdit_10.text())
-        return db.registrar_estoque(dados)
-        db.encerrar()
+        db.registrar_estoque(dados)
+        return db.encerrar()
+
 
     #######FUNÇÃO DE DELETE##########3
     def delete(self):
         db = Banco()
         db.conexao()
-        id = (self.lineEdit_6.text())
+        id = (self.lineEdit_11.text())
         return db.deletar_produto(id)
         db.encerrar()
-
 
     ############## FUNÇÃO PARA TRAZER DO BDD ########
     def trazer_dados(self):
         db = Banco()
         db.conexao()
         resultado = db.consultar_estoque()
-        self.tab.clearContents()
-        self.tab.setRowCount(len(resultado))
+        for i in resultado:
+            print(i)
+        #db.encerrar()
+        #return
+        self.tableWidget.clearContents()
+        self.tableWidget.setRowCount(len(resultado))
 
         for row, text in enumerate(resultado):
             for column, data in enumerate(text):
-                self.tab.setItem(row, column, QTableWidgetItem(str(data)))
+                self.tableWidget.setItem(row, column, QTableWidgetItem(str(data)))
         db.encerrar()
         return
 
+    def atualizar(self):
+        db.Banco()
+        db.conexao()
 
 if __name__ == "__main__":
     db = Banco()

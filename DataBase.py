@@ -50,6 +50,15 @@ class Banco():
         except:
             pass
 
+    def AlterarValor(self, id, dados):
+        try:
+            cursor = self.connection.cursor()
+            cursor.execute(f"UPDATE SET ? FROM estoque WHERE ID={id}",dados)
+            self.connection.commit()
+        except:
+            pass
+
+
     #####FECHAR CONEXÃO
     def encerrar(self):
         try:
@@ -68,4 +77,5 @@ if __name__ == "__main__":
     db.registrar_estoque()
     db.consultar_estoque()
     db.deletar_produto(id)
+    db.AlterarValor(id)
     db.encerrar()
